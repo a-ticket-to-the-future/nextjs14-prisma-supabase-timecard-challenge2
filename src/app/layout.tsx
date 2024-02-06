@@ -4,6 +4,8 @@ import './globals.css'
 import Navigation from "@/app/components/navigation/Navigation"
 import AuthContext from './context/AuthContext'
 import getCurrentUser from './actions/getCurrentUser'
+import ToasterContext from './context/ToasterContext'
+import SignUpModal from '@/app/components/modals/SignUpModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +25,11 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <AuthContext>
+          {/* Toaster */}
+          <ToasterContext />
+
+          <SignUpModal />
         <div>
           <div className='flex min-h-screen flex-col '>
             <Navigation currentUser={currentUser} />
@@ -35,6 +42,7 @@ export default async function RootLayout({
             </footer>
           </div>
         </div>
+        </AuthContext>
       </body>
     </html>
   )
