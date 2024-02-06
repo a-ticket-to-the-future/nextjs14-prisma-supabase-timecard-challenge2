@@ -46,7 +46,7 @@ const Menu: React.FC<MenuProps> = ({currentUser}) => {
         {isOpen && (
             <div className='absolute right-0 z-10 w-40 overflow-hidden rounded-lg bg-white text-sm shadow-lg shadow-gray-100'>
                 <div className=' cursor-pointer'>
-                    (currentUser ? (
+                    {currentUser ? (
                         <>
                 <MenuItem
                   label="プロフィール"
@@ -80,7 +80,7 @@ const Menu: React.FC<MenuProps> = ({currentUser}) => {
                   }}
                 />
               </>
-                    ))
+                    )}
                     
                 </div>
             </div>
