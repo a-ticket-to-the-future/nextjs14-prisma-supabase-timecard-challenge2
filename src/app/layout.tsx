@@ -7,6 +7,8 @@ import getCurrentUser from './actions/getCurrentUser'
 import ToasterContext from './context/ToasterContext'
 import SignUpModal from '@/app/components/modals/SignUpModal'
 import LoginModal from '@/app/components/modals/LoginModal'
+import useProfileModal from './hooks/useProfileModal'
+import ProfileModal from './components/modals/ProfileModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,6 +35,7 @@ export default async function RootLayout({
           <SignUpModal />
 
           <LoginModal />
+          <ProfileModal currentUser={currentUser} />
         <div>
           <div className='flex min-h-screen flex-col '>
             <Navigation currentUser={currentUser} />
