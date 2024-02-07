@@ -3,11 +3,11 @@ import { ModalType } from "../types"
 
 
 //ログイン状態管理
-const useLoginMOdal = create<ModalType>((set) => ({
+const useLoginModal = create<ModalType>((set) => ({
     isOpen:false,
     onOpen:() => set({ isOpen:true}),
     onClose:() =>set({isOpen: false}),
 }))
 
 
-export default useLoginMOdal
+export default useLoginModal
