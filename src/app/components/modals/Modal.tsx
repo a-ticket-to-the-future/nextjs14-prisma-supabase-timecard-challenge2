@@ -3,7 +3,7 @@
 import { useCallback } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
-import Button from '../navigation/button/Button'
+import Button from '../button/Button'
 
 import React from 'react'
 
