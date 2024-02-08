@@ -24,16 +24,36 @@ type UploadResult = {
     }
 }
 
+function isValidUploadResult(result:any): result is UploadResult {
+  return 'info' in result && result.info !== null && 'success_url' in result.info && typeof result.info.secure_url === 'string';
+}
+
+
 //画像アップロード
  
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value}) => {
-  const handleUpload = useCallback((result:UploadResult)=> {
-    // if ('info' in result && result.info && 'secure_url' in result.info) {
-      console.log(result.info.secure_url);
-      onChange(result.info.secure_url);
-    // }
-  },[onChange])
+// const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value}) => {
+  
+  // //ここから
+  // const handleUpload = useCallback((result:UploadResult)=> {
+  //   if ('info' in result && result.info && 'secure_url' in result.info) {
+  //     console.log(result.info.secure_url);
+  //     onChange(result.info.secure_url);
+  //   }
+  // },[onChange])
+  //ここまで
+
+  const ImageUpload: React.FC<ImageUploadProps> = ({onChange,value}) => {
+    const handleUpload = useCallback((result: any) => {
+      if (isValidUploadResult(result)) {
+        console.log(result.info.secure_url);
+        onChange(result.info.secure_url);
+      }
+    },[onChange]);
+  
+
+
+  
 
   return (
     <CldUploadWidget
