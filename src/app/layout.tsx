@@ -43,7 +43,7 @@ export default async function RootLayout({
             <main className='container mx-auto max-w-screen-sm flex-1 px-1 py-5'>{children}</main>
             <footer className='py-5'>
               <div className='text-center text-sm'>
-                Copyright © All rights reserved | FullStackChannel
+                nextjs13-supabase-challenge
               </div>
             </footer>
           </div>
