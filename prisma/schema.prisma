@@ -20,6 +20,8 @@ model User {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   accounts        Account[]
+
+  timecards       Timecard[]
 }
 
 
@@ -39,4 +41,15 @@ model Account {
   user              User    @relation(fields:[userId],references:[id],onDelete: Cascade)
 
   @@unique([provider,providerAccountId])
+}
+
+model Timecard {
+  id                String  @id @default(uuid())
+  userId            String
+  startedAt         DateTime
+  endedAt           DateTime
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  user              User      @relation(fields: [userId], references:[id])
 }
