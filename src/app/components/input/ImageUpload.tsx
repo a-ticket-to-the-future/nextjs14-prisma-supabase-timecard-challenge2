@@ -24,9 +24,9 @@ type UploadResult = {
     }
 }
 
-function isValidUploadResult(result:any): result is UploadResult {
-  return 'info' in result && result.info !== null && 'success_url' in result.info && typeof result.info.secure_url === 'string';
-}
+// function isValidUploadResult(result:any): result is UploadResult {
+//   return 'info' in result && result.info !== null && 'success_url' in result.info && typeof result.info.secure_url === 'string';
+// }
 
 
 //画像アップロード
@@ -44,15 +44,15 @@ function isValidUploadResult(result:any): result is UploadResult {
   //ここまで
 
   const ImageUpload: React.FC<ImageUploadProps> = ({onChange,value}) => {
-    const handleUpload = useCallback((result: any) => {
-      if (isValidUploadResult(result)) {
+    const handleUpload = useCallback((result: UploadResult) => {
+      // if (isValidUploadResult(result)) {
         console.log(result.info.secure_url);
         onChange(result.info.secure_url);
-      }
+      // }
     },[onChange]);
   
 
-
+    console.log(handleUpload)
   
 
   return (
